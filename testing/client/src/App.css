@@ -1,0 +1,34 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 29px 11.4vw;
+
+  background: linear-gradient(
+    79deg,
+    #5680e9 -22.95%,
+    rgba(136, 96, 208, 0.65) 98.31%
+  );
+}
+
+.headerLogo {
+  color: #fff;
+}
+
+.headerLoginBtn {
+  width: 140px;
+  height: 50px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: #ffe492;
+}
+
+
+@media(max-width: 1561px) {
+  header {
+      padding: 29px 5vw;
+  }
+}
