@@ -6,7 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
-
+    "jsx": "react-jsx",
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -22,6 +22,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
+
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
