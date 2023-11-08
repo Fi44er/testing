@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom"
 import "./App.css"
 import Home from "./pages/home/Home"
+import { useState } from "react";
+
+
 
 function App() {
+  const [modalActive, setModalActive] = useState<boolean>(false)
   return (
     <>
       <header>
@@ -10,11 +14,11 @@ function App() {
           <h1>ОКЭИ</h1>
           <p>тестирование</p>
         </Link>
-        <Link to="#" className="headerLoginBtn">
+        <button className="headerLoginBtn" onClick={() => setModalActive(true)}>
           Войти
-        </Link>
+        </button>
       </header>
-      <Home />
+      <Home modalActive={modalActive} setModalActive={setModalActive} />  
     </>
   )
 }

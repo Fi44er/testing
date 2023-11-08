@@ -4,12 +4,13 @@ import { useState } from "react";
 import HeaderIntro from "./components/intro/HeaderIntro";
 import Modal from "./components/modal/Modal";
 
-function Home() {
-    interface IUseState {
-        modalActive:boolean
-        setModalActive: void
-    }
-    const [modalActive, setModalActive] = useState<IUseState>()
+interface IHomeProps {
+  modalActive: boolean
+  setModalActive: (value: boolean) => void
+}
+
+function Home({modalActive, setModalActive}:IHomeProps) {
+    
   return (
     <>
       <HeaderIntro/>

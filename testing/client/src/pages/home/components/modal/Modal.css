@@ -1,0 +1,101 @@
+.modalActive {
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+}
+
+.modalClose {
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    transform: scale(0);
+}
+
+/* .modal .active{
+    transform: scale(1);
+} */
+
+.modalContent {
+    width: 49%;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.25);
+
+    padding: 40px 50px 130px 50px;
+}
+
+.modalCloseBtn {
+    float: right;
+}
+
+.modalInfo {
+    margin-top: 45px;
+    display: flex;
+    grid-gap: 8%;
+}
+
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.modalForm h1 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    color: #36434F;
+}
+
+.modalInput {
+    padding-bottom: 25px;
+}
+
+.modalInput button {
+    width: 100%;
+    height: 40px;
+    border-radius: 12px;
+}
+
+.input {
+    display: flex;
+    grid-gap: 10px;
+    align-items: center;
+    background: #E0E4F2;
+    padding: 0 15px;
+    height: 40px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.input input {
+    background: none;
+    height: 100%;
+}
+
+.formButton {
+    background: linear-gradient(91deg, #5AB9EA 3.89%, #8860D0 43.84%, #5680E9 92.06%);
+    color: #fff;
+    border: none;
+    height: 40px;
+}
+
+
+.modalA {
+    display: flex;
+    grid-gap: 20px;
+    font-size: 18px;
+    color: #36434F;
+}
+
+
+

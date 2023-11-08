@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 * {
@@ -30,4 +31,5 @@ button {
   justify-content: center;
   align-items: center;
   border-radius: 12px;
+  border: none;
 }
