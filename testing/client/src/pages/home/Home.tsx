@@ -5,16 +5,16 @@ import HeaderIntro from "./components/intro/HeaderIntro";
 import Modal from "./components/modal/Modal";
 
 interface IHomeProps {
-  modalActive: boolean
-  setModalActive: (value: boolean) => void
+  modalAuthActive: boolean
+  setModalAuthActive: (value: boolean) => void
 }
 
-function Home({modalActive, setModalActive}:IHomeProps) {
+function Home({modalAuthActive, setModalAuthActive}:IHomeProps) {
     
   return (
     <>
       <HeaderIntro/>
-      <Modal active={modalActive} setActive={setModalActive} />
+      <Modal active={modalAuthActive} setActive={setModalAuthActive} />
     </>
   )
 }

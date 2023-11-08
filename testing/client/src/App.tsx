@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom"
 import "./App.css"
 import Home from "./pages/home/Home"
-import { useState } from "react";
-
-
+import { useState } from "react"
 
 function App() {
-  const [modalActive, setModalActive] = useState<boolean>(false)
+  const [modalAuthActive, setModalAuthActive] = useState<boolean>(false)
   return (
     <>
       <header>
@@ -14,11 +12,17 @@ function App() {
           <h1>ОКЭИ</h1>
           <p>тестирование</p>
         </Link>
-        <button className="headerLoginBtn" onClick={() => setModalActive(true)}>
-          Войти
+        <button
+          className="headerLoginBtn"
+          onClick={() => setModalAuthActive(true)}
+        >
+          Личный кабинет
         </button>
       </header>
-      <Home modalActive={modalActive} setModalActive={setModalActive} />  
+      <Home
+        modalAuthActive={modalAuthActive}
+        setModalAuthActive={setModalAuthActive}
+      />
     </>
   )
 }
