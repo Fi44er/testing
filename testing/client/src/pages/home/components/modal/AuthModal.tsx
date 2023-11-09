@@ -1,5 +1,7 @@
 import Modal from "react-modal"
 import "./Modal.css"
+import { Context } from "../../../../main"
+import { useContext, useState } from "react"
 
 interface ModalProps {
   isOpen: boolean
@@ -7,6 +9,9 @@ interface ModalProps {
 }
 
 const AuthModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+  const {store} = useContext(Context)
   return (
     <Modal
       isOpen={isOpen}
@@ -37,11 +42,21 @@ const AuthModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
           <div className="modalInput">
             <div className="input">
               <img src="/src/assets/email.svg" alt="" />
-              <input type="text" placeholder="Почта" />
+              <input
+                type="text"
+                placeholder="Почта"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
             </div>
             <div className="input">
               <img src="/src/assets/pass.svg" alt="" />
-              <input type="password" placeholder="Пароль" />
+              <input
+                type="password"
+                placeholder="Пароль"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
             </div>
             <button className="formButton">Войти</button>
           </div>
