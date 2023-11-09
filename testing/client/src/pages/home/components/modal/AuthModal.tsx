@@ -2,6 +2,7 @@ import Modal from "react-modal"
 import "./Modal.css"
 import { Context } from "../../../../main"
 import { useContext, useState } from "react"
+import { observer } from "mobx-react-lite"
 
 interface ModalProps {
   isOpen: boolean
@@ -11,10 +12,12 @@ interface ModalProps {
 const AuthModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
-  const {store} = useContext(Context)
+  const { store } = useContext(Context)
+  
   return (
     <Modal
       isOpen={isOpen}
+      ariaHideApp={false}
       onRequestClose={onRequestClose}
       className="modal"
       style={{
@@ -58,7 +61,12 @@ const AuthModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
                 value={password}
               />
             </div>
-            <button className="formButton">Войти</button>
+            <button
+              className="formButton"
+              onClick={() => store.login(email, password)}
+            >
+              Войти
+            </button>
           </div>
         </div>
       </div>
@@ -66,4 +74,4 @@ const AuthModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
   )
 }
 
-export default AuthModal
+export default observer(AuthModal)

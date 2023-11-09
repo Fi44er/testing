@@ -1,5 +1,7 @@
 import Modal from "react-modal"
 import "./Modal.css"
+import { Context } from "../../../../main"
+import { useContext, useState } from "react"
 
 interface ModalProps {
   isOpen: boolean
@@ -7,9 +9,15 @@ interface ModalProps {
 }
 
 const RegModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
+  const [email, setEmail] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
+  const [fio, setFio] = useState<string>("")
+  const [phoneNumber, setPhoneNumber] = useState<string>("")
+  const { store } = useContext(Context)
   return (
     <Modal
       isOpen={isOpen}
+      ariaHideApp={false}
       onRequestClose={onRequestClose}
       className="modal"
       style={{
@@ -37,21 +45,41 @@ const RegModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
           <div className="modalInput">
             <div className="input">
               <img src="/src/assets/fio.svg" alt="fio" />
-              <input type="text" placeholder="ФИО" />
+              <input
+                type="text"
+                placeholder="ФИО"
+                onChange={(e) => setFio(e.target.value)}
+                value={fio}
+              />
             </div>
             <div className="input">
               <img src="/src/assets/phone.svg" alt="phone" />
-              <input type="text" placeholder="Телефон" />
+              <input
+                type="text"
+                placeholder="Телефон"
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                value={phoneNumber}
+              />
             </div>
             <div className="input">
               <img src="/src/assets/email.svg" alt="" />
-              <input type="text" placeholder="Почта" />
+              <input
+                type="text"
+                placeholder="Почта"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
             </div>
             <div className="input">
               <img src="/src/assets/pass.svg" alt="" />
-              <input type="password" placeholder="Пароль" />
+              <input
+                type="password"
+                placeholder="Пароль"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
             </div>
-            <button className="formButton">Зарегистрироваться</button>
+            <button className="formButton" onClick={() => store.registration(email, password, fio, phoneNumber)}>Зарегистрироваться</button>
           </div>
         </div>
       </div>
