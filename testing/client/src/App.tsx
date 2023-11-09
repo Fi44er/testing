@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom"
+import { Routes, Route, Link } from "react-router-dom"
 import "./App.css"
 import Home from "./pages/home/Home"
 import { useState } from "react"
 
 function App() {
-  const [modalAuthActive, setModalAuthActive] = useState<boolean>(false)
+  const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false)
+  const openAuth = () => setIsAuthOpen(true)
+  const closeAuth = () => setIsAuthOpen(false)
+
+  const [isRegOpen, setIsRegOpen] = useState<boolean>(false)
+  const openReg = () => setIsRegOpen(true)
+  const closeReg = () => setIsRegOpen(false)
   return (
     <>
       <header>
@@ -12,16 +18,20 @@ function App() {
           <h1>ОКЭИ</h1>
           <p>тестирование</p>
         </Link>
-        <button
-          className="headerLoginBtn"
-          onClick={() => setModalAuthActive(true)}
-        >
-          Личный кабинет
-        </button>
+        <div className="buttonBlock">
+          <button className="headerLoginBtn" onClick={() => openAuth()}>
+            Войти
+          </button>
+          <button className="headerLoginBtn" onClick={() => openReg()}>
+            Зарегистрироваться
+          </button>
+        </div>
       </header>
       <Home
-        modalAuthActive={modalAuthActive}
-        setModalAuthActive={setModalAuthActive}
+        isAuthOpen={isAuthOpen}
+        closeAuth={closeAuth} 
+        isRegOpen={isRegOpen}
+        closeReg={closeReg}
       />
     </>
   )
