@@ -1,5 +1,5 @@
-import style from "./Profile.module.css";
-import { Link } from "react-router-dom";
+import style from "./Profile.module.css"
+import { Link } from "react-router-dom"
 const objectsOne = [
   {
     h: "Фио",
@@ -9,7 +9,7 @@ const objectsOne = [
     h: "Пол",
     p: "Мужской",
   },
-];
+]
 
 const objectsOneContent = objectsOne.map((item) => {
   return (
@@ -19,8 +19,8 @@ const objectsOneContent = objectsOne.map((item) => {
         <p>{item.p}</p>
       </div>
     </div>
-  );
-});
+  )
+})
 const objectsTwo = [
   {
     h: "Телефон",
@@ -30,7 +30,7 @@ const objectsTwo = [
     h: "Почта",
     p: "bibaboba@gmail.com",
   },
-];
+]
 
 const objectsTwoContent = objectsTwo.map((item) => {
   return (
@@ -40,9 +40,9 @@ const objectsTwoContent = objectsTwo.map((item) => {
         <p>{item.p}</p>
       </div>
     </div>
-  );
-});
-function Profile() {
+  )
+})
+const Profile = () => {
   return (
     <>
       <div className={style.block}>
@@ -88,6 +88,6 @@ function Profile() {
         </div>
       </div>
     </>
-  );
+  )
 }
-export default Profile;
+export default Profile

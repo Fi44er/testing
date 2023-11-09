@@ -1,7 +1,8 @@
-import { Routes, Route, Link } from "react-router-dom"
+import { Route, Routes, Link, BrowserRouter } from "react-router-dom"
 import "./App.css"
-import Home from "./pages/home/Home"
 import { useState } from "react"
+import Profile from "./pages/profile/Profile"
+import Home from "./pages/home/Home"
 
 function App() {
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false)
@@ -27,12 +28,21 @@ function App() {
           </button>
         </div>
       </header>
-      <Home
-        isAuthOpen={isAuthOpen}
-        closeAuth={closeAuth} 
-        isRegOpen={isRegOpen}
-        closeReg={closeReg}
-      />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              isAuthOpen={isAuthOpen}
+              closeAuth={closeAuth}
+              isRegOpen={isRegOpen}
+              closeReg={closeReg}
+            />
+          }
+        />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
     </>
   )
 }
