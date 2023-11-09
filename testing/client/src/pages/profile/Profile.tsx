@@ -1,48 +1,47 @@
-import style from "./Profile.module.css";
-import { Link } from "react-router-dom";
-const objectsOne = [
-  {
-    h: "Фио",
-    p: "Каримулин Валей Сергеевич",
-  },
-  {
-    h: "Пол",
-    p: "Мужской",
-  },
-];
+import style from "./Profile.module.css"
+import { Link } from "react-router-dom"
+import { useContext } from "react"
 
-const objectsOneContent = objectsOne.map((item) => {
-  return (
-    <div className={style.objects}>
-      <p>{item.h}</p>
-      <div>
-        <p>{item.p}</p>
-      </div>
-    </div>
-  );
-});
-const objectsTwo = [
-  {
-    h: "Телефон",
-    p: "+79228411322",
-  },
-  {
-    h: "Почта",
-    p: "bibaboba@gmail.com",
-  },
-];
+import { Context } from "../../main"
+  
+// const objectsOne = [
+//   {
+//     h: "Фио",
+//     p: "Каримулин Валей Сергеевич",
+//   },
+//   {
+//     h: "Пол",
+//     p: "Мужской",
+//   },
+// ]
 
-const objectsTwoContent = objectsTwo.map((item) => {
-  return (
-    <div className={style.objects}>
-      <p>{item.h}</p>
-      <div>
-        <p>{item.p}</p>
-      </div>
-    </div>
-  );
-});
+// const objectsOneContent = objectsOne.map((item) => {
+//   return (
+//     <div className={style.objects}>
+//       <p>{item.h}</p>
+//       <div>
+//         <p>{item.p}</p>
+//       </div>
+//     </div>
+//   )
+// })
+
+// const objectsTwoContent = objectsTwo.map((item) => {
+//   return (
+//     <div className={style.objects}>
+//       <p>{item.h}</p>
+//       <div>
+//         <p>{item.p}</p>
+//       </div>
+//     </div>
+//   );
+// });
 const Profile = () => {
+  const { store } = useContext(Context)
+  
+  if (!localStorage.getItem("token")) {
+    location.href = '/'
+  }
   return (
     <>
       <div className={style.block}>
@@ -80,17 +79,43 @@ const Profile = () => {
                 </div>
               </div>
               <div className={style.profileInfo}>
-                <div>{objectsOneContent}</div>
-                <div>{objectsTwoContent}</div>
+                <div>
+                  <div className={style.objects}>
+                    <p></p>
+                    <div>
+                      <p></p>
+                    </div>
+                  </div>
+                  <div className={style.objects}>
+                    <p></p>
+                    <div>
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className={style.objects}>
+                    <p></p>
+                    <div>
+                      <p></p>
+                    </div>
+                  </div>
+                  <div className={style.objects}>
+                    <p></p>
+                    <div>
+                      <p></p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className={style.profileInfoButton}>
-                <button>Выйти из акаунта</button>
+                <button onClick={() => store.logout()}>Выйти из акаунта</button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </>
-  );
-};
-export default Profile;
+  )
+}
+export default Profile

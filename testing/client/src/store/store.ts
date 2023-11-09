@@ -8,11 +8,12 @@ import { API_URL } from "../http"
 export default class Store {
   user = {} as IUser
   isAuth = false
+  isLoading = false
   constructor() {
     makeAutoObservable(this)
   }
 
-  setAuth(bool:boolean){
+  setAuth(bool: boolean) {
     this.isAuth = bool
   }
 
@@ -20,53 +21,67 @@ export default class Store {
     this.user = user
   }
 
+  setLoading(bool: boolean) {
+    this.isLoading = bool
+  }
+
   async login(email: string, password: string) {
     try {
-        const response = await AuthServices.login(email, password)
-        console.log(response);
-        localStorage.setItem('token', response.data.accessToken)
-        this.setAuth(true)
-        this.setUser(response.data.user)
+      const response = await AuthServices.login(email, password)
+      console.log(response)
+      localStorage.setItem("token", response.data.accessToken)
+      this.setAuth(true)
+      this.setUser(response.data.user)
     } catch (e: any) {
-        console.log(e.response?.data?.message);
-        
+      console.log(e.response?.data?.message)
     }
   }
 
-  async registration(email: string, password: string, fio:string, phoneNumber:string) {
+  async registration(
+    email: string,
+    password: string,
+    fio: string,
+    phoneNumber: string
+  ) {
     try {
-        const response = await AuthServices.registration(email, password, fio, phoneNumber)
-        console.log(response);
-        localStorage.setItem('token', response.data.accessToken)
-        this.setAuth(true)
-        this.setUser(response.data.user)
+      const response = await AuthServices.registration(
+        email,
+        password,
+        fio,
+        phoneNumber
+      )
+      console.log(response)
+      localStorage.setItem("token", response.data.accessToken)
+      this.setAuth(true)
+      this.setUser(response.data.user)
     } catch (e: any) {
-        console.log(e.response?.data?.message);
-        
+      console.log(e.response?.data?.message)
     }
   }
 
   async logout() {
     try {
-        const response = await AuthServices.logout()
-        localStorage.removeItem('token')
-        this.setAuth(false)
-        this.setUser({} as IUser)
+      const response = await AuthServices.logout()
+      localStorage.removeItem("token")
+      this.setAuth(false)
+      this.setUser({} as IUser)
     } catch (e: any) {
-        console.log(e.response?.data?.message);
+      console.log(e.response?.data?.message)
     }
   }
 
   async checkAuth() {
-    try{
-      const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
-      console.log(response);
-      
-      localStorage.setItem('token', response.data.accessToken)
+    try {
+      const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {
+        withCredentials: true,
+      })
+      console.log(response)
+
+      localStorage.setItem("token", response.data.accessToken)
       this.setAuth(true)
       this.setUser(response.data.user)
-    } catch(e: any) {
-      console.log(e.response?.data?.message);
+    } catch (e: any) {
+      console.log(e.response?.data?.message)
     } finally {
       this.setAuth(false)
     }

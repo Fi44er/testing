@@ -6,6 +6,9 @@ import Home from "./pages/home/Home";
 import Tests from "./pages/profile/tests/components/Tests";
 import Quiz from "./pages/profile/quiz/components/Quiz";
 
+
+
+
 function App() {
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
   const openAuth = () => setIsAuthOpen(true);
@@ -15,8 +18,7 @@ function App() {
   const [isRegOpen, setIsRegOpen] = useState<boolean>(false)
   const openReg = () => setIsRegOpen(true)
   const closeReg = () => setIsRegOpen(false)
-
-
+  
   
     if (localStorage.getItem("token")) {
       

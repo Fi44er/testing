@@ -8,7 +8,6 @@ import AuthModal from "./components/modal/AuthModal"
 import RegModal from "./components/modal/RegModal"
 import { Context } from "../../main"
 import { observer } from "mobx-react-lite"
-import { Navigate } from "react-router-dom"
 
 interface IModProp {
   isAuthOpen: boolean
@@ -24,6 +23,7 @@ const Home: React.FC<IModProp> = ({
   isRegOpen,
   closeReg,
 }) => {
+
   const { store } = useContext(Context)
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -39,7 +39,6 @@ const Home: React.FC<IModProp> = ({
       <HeaderIntro />
       <AuthModal isOpen={isAuthOpen} onRequestClose={closeAuth} />
       <RegModal isOpen={isRegOpen} onRequestClose={closeReg} />
-      {/* <h1>{store.isAuth ? "Пользователь авторизован" : "АВТОРИЗУЙТЕСЬ"}</h1> */}
       <IntroMain />
     </>
   )
