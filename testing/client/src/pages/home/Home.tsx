@@ -1,20 +1,30 @@
 // import { Routes, Route, Link } from "react-router-dom";
 // import styles from './Home.module.css'
-import { useState } from "react"
 import HeaderIntro from "./components/intro/HeaderIntro"
-import Modal from "./components/modal/Modal"
 import IntroMain from "./components/introMain/IntroMain"
 
-interface IHomeProps {
-  modalAuthActive: boolean
-  setModalAuthActive: (value: boolean) => void
+import AuthModal from "./components/modal/AuthModal"
+import RegModal from "./components/modal/RegModal"
+
+interface IModProp {
+  isAuthOpen: boolean
+  closeAuth: () => void
+
+  isRegOpen: boolean
+  closeReg: () => void
 }
 
-function Home({ modalAuthActive, setModalAuthActive }: IHomeProps) {
+const Home: React.FC<IModProp> = ({
+  isAuthOpen,
+  closeAuth,
+  isRegOpen,
+  closeReg,
+}) => {
   return (
     <>
       <HeaderIntro />
-      <Modal active={modalAuthActive} setActive={setModalAuthActive} />
+      <AuthModal isOpen={isAuthOpen} onRequestClose={closeAuth} />
+      <RegModal isOpen={isRegOpen} onRequestClose={closeReg} />
       <IntroMain />
     </>
   )
