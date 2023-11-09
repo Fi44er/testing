@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom"
+import { Route, Routes, Link } from "react-router-dom"
 import "./App.css"
 import Home from "./pages/home/Home"
 import { useState } from "react"
+import Profile from "./pages/profile/Profile"
 
 function App() {
   const [modalAuthActive, setModalAuthActive] = useState<boolean>(false)
@@ -23,6 +24,9 @@ function App() {
         modalAuthActive={modalAuthActive}
         setModalAuthActive={setModalAuthActive}
       />
+      <Routes>
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
     </>
   )
 }
