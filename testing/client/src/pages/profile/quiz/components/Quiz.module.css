@@ -1,0 +1,33 @@
+.Quiz {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 100px;
+}
+/* .quizQustions {
+} */
+.quizQustionsItem {
+  margin-bottom: 20px;
+}
+.quizQustionsItemQustion {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.quizQustionsItemAnswers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.quizQustionsItemAnswers li label {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.quizQustionsItemAnswers li label input {
+  margin: 0 10px;
+}
+
+.quizIndicator {
+  margin-bottom: 20px;
+}

@@ -1,17 +1,19 @@
-import { Route, Routes, Link, BrowserRouter } from "react-router-dom"
-import "./App.css"
-import { useState } from "react"
-import Profile from "./pages/profile/Profile"
-import Home from "./pages/home/Home"
+import { Route, Routes, Link, BrowserRouter } from "react-router-dom";
+import "./App.css";
+import { useState } from "react";
+import Profile from "./pages/profile/Profile";
+import Home from "./pages/home/Home";
+import Tests from "./pages/profile/tests/components/Tests";
+import Quiz from "./pages/profile/quiz/components/Quiz";
 
 function App() {
-  const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false)
-  const openAuth = () => setIsAuthOpen(true)
-  const closeAuth = () => setIsAuthOpen(false)
+  const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
+  const openAuth = () => setIsAuthOpen(true);
+  const closeAuth = () => setIsAuthOpen(false);
 
-  const [isRegOpen, setIsRegOpen] = useState<boolean>(false)
-  const openReg = () => setIsRegOpen(true)
-  const closeReg = () => setIsRegOpen(false)
+  const [isRegOpen, setIsRegOpen] = useState<boolean>(false);
+  const openReg = () => setIsRegOpen(true);
+  const closeReg = () => setIsRegOpen(false);
   return (
     <>
       <header>
@@ -42,9 +44,11 @@ function App() {
           }
         />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/tests" element={<Tests />} />
+        <Route path="/quiz" element={<Quiz />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
