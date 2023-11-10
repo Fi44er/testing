@@ -16,6 +16,9 @@ export const Context = createContext<IStore>({
   store,
 })
 
+
+
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Context.Provider value={{ store }}>
     <BrowserRouter>
