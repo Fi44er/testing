@@ -22,7 +22,7 @@ export const Context = createContext<IStore>({
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Context.Provider value={{ store }}>
     <BrowserRouter>
-      <App />
+    <App />
     </BrowserRouter>
   </Context.Provider>
 )
