@@ -1,12 +1,19 @@
-import style from "./Quiz.module.css";
+import style from "./Quiz.module.css"
+import { Link } from "react-router-dom"
 
 const Data: any = [
-  //   {
-  //     qustion: "Мне хотелось бы в своей профессиональной деятельности:",
-  //   },
-  //   {
-  //     qustion: "В книге или кинофильме меня больше всего привлекает:",
-  //   },
+  {
+    qustion: "Мне хотелось бы в своей профессиональной деятельности:",
+    answer1: "Общаться с самыми разными людьми",
+    answer2: "Снимать фильмы, писать книги, рисовать, выступать на сцене и т.д",
+    answer3: "Заниматься расчетами, вести документацию",
+  },
+  {
+    qustion: "В книге или кинофильме меня больше всего привлекает:",
+    answer1: "Возможность следить за ходом мыслей автора",
+    answer2: "Художественная форма, мастерство писателя или режиссера",
+    answer3: "Сюжет, действия героев",
+  },
   {
     qustion: "В книге или кинофильме меня больше всего привлекает:",
     answer1: "Возможность следить за ходом мыслей автора",
@@ -14,25 +21,25 @@ const Data: any = [
     answer2: "Художественная форма, мастерство писателя или режиссера",
     answer3: "Сюжет, действия героев",
   },
-  //   {
-  //     Qustion: "Меня больше обрадует Нобелевская премия:",
-  //     answer1: "За общественную деятельность",
-  //     answer2: "В области наук",
-  //     answer3: "В области искусства",
-  //   },
-  //   {
-  //     Qustion: "Я скорее соглашусь стать:",
-  //     answer1: "Главным механиком",
-  //     answer2: "Начальником экспедиции",
-  //     answer3: "Главным бухгалтером",
-  //   },
-  //   {
-  //     Qustion: "Будущее людей определяют:",
-  //     answer1: "Взаимопонимание между людьми ",
-  //     answer2: "Научные открытия",
-  //     answer3: "Развитие производства",
-  //   },
-];
+  {
+    qustion: "Меня больше обрадует Нобелевская премия:",
+    answer1: "За общественную деятельность",
+    answer2: "В области наук",
+    answer3: "В области искусства",
+  },
+  {
+    qustion: "Я скорее соглашусь стать:",
+    answer1: "Главным механиком",
+    answer2: "Начальником экспедиции",
+    answer3: "Главным бухгалтером",
+  },
+  {
+    qustion: "Будущее людей определяют:",
+    answer1: "Взаимопонимание между людьми ",
+    answer2: "Научные открытия",
+    answer3: "Развитие производства",
+  },
+]
 // const answers = [
 //   {
 //     id: "1",
@@ -65,9 +72,9 @@ const Data: any = [
 //     corecct: "answer 3",
 //   },
 // ];
-const quiz = document.getElementById("quiz");
-const qustions = document.getElementById("qustions");
-const results = document.getElementById("results");
+const quiz = document.getElementById("quiz")
+const qustions = document.getElementById("qustions")
+const results = document.getElementById("results")
 
 // const renderQustions = () => {};
 // const renderResults = () => {};
@@ -81,8 +88,8 @@ const results = document.getElementById("results");
 //   );
 // });
 const DataContent = Data.map((item: any) => {
-  const correct1 = Data[0].correct;
-  console.log(Data[0][correct1]);
+  const correct1 = Data[0].correct
+  console.log(Data[0][correct1])
 
   return (
     <div>
@@ -93,19 +100,25 @@ const DataContent = Data.map((item: any) => {
             <li>
               <label>
                 <input type="radio" name="q1" />
-                <p>{item.answer1}</p>
+                <div className={style.answerP}>
+                  <p>{item.answer1}</p>
+                </div>
               </label>
             </li>
             <li>
               <label>
                 <input type="radio" name="q1" />
-                <p>{item.answer1}</p>
+                <div className={style.answerP}>
+                  <p>{item.answer2}</p>
+                </div>
               </label>
             </li>
             <li>
               <label>
                 <input type="radio" name="q1" />
-                <p>{item.answer1}</p>
+                <div className={style.answerP}>
+                  <p>{item.answer3}</p>
+                </div>
               </label>
             </li>
           </ul>
@@ -118,17 +131,34 @@ const DataContent = Data.map((item: any) => {
         </div>
       </div> */}
     </div>
-  );
-});
+  )
+})
 const Quiz = () => {
   return (
-    <div className={style.Quiz} id="quiz">
-      {/* <div className={style.quizIndicator}>1/10</div> */}
-      {DataContent}
-      <div className={style.quizControls}>
-        <button>Завершить тестирование</button>
+    <div className={style.quizBlock}>
+      <div className={style.profileHeader}>
+        <nav className={style.headerNav}>
+          <ul>
+            <li>
+              <Link to="/profile">Мой профиль</Link>
+            </li>
+            <li>
+              <Link to="/tests">Тесты</Link>
+            </li>
+            <li>
+              <Link to="#">Пройденые Тесты</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div className={style.Quiz} id="quiz">
+        {/* <div className={style.quizIndicator}>1/10</div> */}
+        {DataContent}
+        <div className={style.quizControls}>
+          <button>Завершить тестирование</button>
+        </div>
       </div>
     </div>
-  );
-};
-export default Quiz;
+  )
+}
+export default Quiz
