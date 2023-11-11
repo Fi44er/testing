@@ -1,14 +1,16 @@
 import { Link, useLocation } from "react-router-dom"
 
-const Header = ({ isAuthOpen, isRegOpen }:any) => {
+const Header = ({ isAuthOpen, isRegOpen, value }:any) => {
     const { pathname } = useLocation()
+    console.log(value);
+    
 
     
   if (localStorage.getItem("token")) {
     
     return (
       <>
-        <header style={{display: pathname === '' ? 'none' : 'flex'}}>
+        <header style={{display: pathname === value ? 'none' : 'flex'}}>
           <Link to="/" className="headerLogo">
             <h1>ОКЭИ</h1>
             <p>тестирование</p>
@@ -24,7 +26,7 @@ const Header = ({ isAuthOpen, isRegOpen }:any) => {
   } else {
     return (
       <>
-        <header style={{display: pathname === '' ? 'none' : 'flex'}}>
+        <header style={{display: pathname === value ? 'none' : 'flex'}}>
           <Link to="/" className="headerLogo">
             <h1>ОКЭИ</h1>
             <p>тестирование</p>

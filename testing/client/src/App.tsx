@@ -1,4 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 
 import "./App.css"
 import { useState } from "react"
@@ -10,6 +11,8 @@ import Quiz from "./pages/profile/quiz/components/Quiz"
 import NotFound from "./pages/NotFound/NotFound"
 import Header from "./components/Header"
 
+import ProtectedRoute from "./components/ProtectedRoute"
+
 const App = () => {
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false)
   const openAuth = () => setIsAuthOpen(true)
@@ -19,33 +22,53 @@ const App = () => {
   const openReg = () => setIsRegOpen(true)
   const closeReg = () => setIsRegOpen(false)
 
+  // nptFound page location
+  const [value, setValue] = useState("")
+  const handleChange = (pathNotFound: any) => {
+    setValue(pathNotFound)
+  }
 
+  let authenticated
+  if (!localStorage.getItem("token")) {
+    authenticated = false
+  } else {
+    authenticated = true
+  }
 
   return (
     <>
-      <Header
-        isAuthOpen={openAuth}
-        closeAuth={closeAuth}
-        isRegOpen={openReg}
-        closeReg={closeReg}
-      />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              isAuthOpen={isAuthOpen}
-              closeAuth={closeAuth}
-              isRegOpen={isRegOpen}
-              closeReg={closeReg}
-            />
-          }
+      <BrowserRouter>
+        <Header
+          isAuthOpen={openAuth}
+          closeAuth={closeAuth}
+          isRegOpen={openReg}
+          closeReg={closeReg}
+          value={value}
         />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/tests" element={<Tests />} />
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                isAuthOpen={isAuthOpen}
+                closeAuth={closeAuth}
+                isRegOpen={isRegOpen}
+                closeReg={closeReg}
+              />
+            }
+          />
+          <Route
+            path="/"
+            element={<ProtectedRoute authenticated={authenticated} />}
+          >
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/tests" element={<Tests />} />
+            <Route path="/quiz" element={<Quiz />} />
+          </Route>
+
+          <Route path="*" element={<NotFound onChange={handleChange} />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

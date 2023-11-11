@@ -2,7 +2,9 @@ import { Link, useLocation  } from "react-router-dom";
 
 import "./NotFound.css"
 
-const NotFound = () => {
+const NotFound = ({onChange}:any) => {
+  const { pathname } = useLocation()
+  onChange(pathname)
   return (
     <>
     <div className="notFoundPage">

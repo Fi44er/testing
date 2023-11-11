@@ -42,6 +42,7 @@ const AuthModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
         />
         <div className="modalForm">
           <h1>Вход</h1>
+          {/* <h1>{store.login}</h1> */}
           <div className="modalInput">
             <div className="input">
               <img src="/src/assets/email.svg" alt="" />

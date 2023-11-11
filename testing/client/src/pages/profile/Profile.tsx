@@ -39,9 +39,7 @@ import { Context } from "../../main"
 const Profile = () => {
   const { store } = useContext(Context)
   
-  if (!localStorage.getItem("token")) {
-    location.href = '/'
-  }
+  
   return (
     <>
       <div className={style.block}>

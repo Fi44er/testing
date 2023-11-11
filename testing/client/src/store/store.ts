@@ -34,6 +34,7 @@ export default class Store {
       this.setUser(response.data.user)
     } catch (e: any) {
       console.log(e.response?.data?.message)
+      throw e
     }
   }
 
@@ -72,9 +73,7 @@ export default class Store {
 
   async checkAuth() {
     try {
-      const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {
-        withCredentials: true,
-      })
+      const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true,})
       console.log(response)
 
       localStorage.setItem("token", response.data.accessToken)
