@@ -11,7 +11,7 @@ function HeaderIntro() {
             <p>мы поможем с выбором професси, подходящей именно тебе</p>
             <Link to='#' className={styles.introBtn}>Пройти тест<img src="/src/assets/whiteErrow.svg" alt="errow"/></Link>
         </div>
-        <div>
+        <div className={styles.introImg}>
             <img src="/src/assets/introImg.svg" alt="img" />
         </div>
       </div>

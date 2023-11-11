@@ -43,9 +43,26 @@
   background: #5ab9ea;
 }
 
+.introImg {
+  display: flex;
+}
+
+.introImg img {
+  width: 100%;
+}
 
 @media(max-width: 1561px) {
     .intro {
         padding: 100px 5vw 68px 5vw;
     }
+}
+
+@media(max-width: 1018px) {
+  .intro { 
+    justify-content: start;
+  }
+
+  .introImg {
+    display: none;
+  }
 }
