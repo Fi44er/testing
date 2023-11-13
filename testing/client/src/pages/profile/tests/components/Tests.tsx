@@ -1,26 +1,23 @@
-import style from "./Test.module.css";
-import { Routes, Route, Link } from "react-router-dom";
+import style from "./Test.module.css"
+import { Routes, Route, Link } from "react-router-dom"
 const thems = [
   {
     name: "Проф тест",
   },
-  {
-    name: "Проф тест 2",
-  },
-];
+]
 
 const themsContent = thems.map((item) => {
-  return <div>{item.name}</div>;
-});
+  return <div>{item.name}</div>
+})
 
 function Tests() {
   return (
     <div className={style.TestsBlock}>
-      <div className={style.AccountHeader}>
+      <div className={style.profileHeader}>
         <nav className={style.headerNav}>
           <ul>
             <li>
-              <Link to="/Profile">Мой профиль</Link>
+              <Link to="/profile">Мой профиль</Link>
             </li>
             <li>
               <Link to="/tests">Тесты</Link>
@@ -38,6 +35,6 @@ function Tests() {
         </div>
       </div>
     </div>
-  );
+  )
 }
-export default Tests;
+export default Tests
