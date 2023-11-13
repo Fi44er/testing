@@ -13,7 +13,9 @@ class UserService {
             throw ApiError.BadRequest(`Пользователь с почтой ${email} уже существует`)
         }else{
             const hashPassword = await bcrypt.hash(password, 3)
-            await connect.execute("INSERT INTO `users`(`email`, `password`, `fio`, `phoneNumber`) VALUES(?,?,?,?)", [email, hashPassword, fio, phoneNumber])
+            const dateNow = new Date()
+            const date = `${dateNow.getFullYear()}-${dateNow.getMonth()+1}-${dateNow.getDate()} ${dateNow.getHours()}:${dateNow.getMinutes()}:${dateNow.getSeconds()}`
+            await connect.execute("INSERT INTO `users`(`email`, `password`, `fio`, `phoneNumber`, `regTime`) VALUES(?,?,?,?,?)", [email, hashPassword, fio, phoneNumber, date])
             const user = await connect.execute('SELECT * FROM `users` WHERE `email` = ?', [email]);
     
             const userDto = new UserDto(user[0][0]) // id, email, isActivated
