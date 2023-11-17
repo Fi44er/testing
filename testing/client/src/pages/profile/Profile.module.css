@@ -130,3 +130,68 @@
   width: 25vw;
   height: 2.5vw;
 }
+@media (max-width: 768px) {
+  .block {
+    display: flex;
+    margin: auto;
+    width: 100%;
+  }
+  .profile {
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 0px 41px -2px rgba(50, 122, 204, 0.2);
+    border-radius: 0 0 30px 30px;
+    padding: 10px;
+  }
+  .profileHeader {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+  .profileAndHeader {
+    width: 100%;
+    padding: 10px;
+    gap: 20px;
+  }
+  .profileAndHeader h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 34px;
+    font-weight: 400;
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  .headerNav a {
+    position: relative;
+    padding-bottom: 10px;
+    font-size: 0.9em;
+  }
+
+  .profileInfo {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0px;
+  }
+  .profileForm {
+    padding: 10px;
+  }
+  .profileImg img {
+    width: 35vw;
+    border-radius: 100px;
+    border: none;
+  }
+  .objects div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 12.5vw;
+    border-radius: 15px;
+    background-color: #f2f1f2;
+    margin-top: 10px;
+  }
+  .profileInfoButton button {
+    width: 40vw;
+    height: 15vw;
+  }
+}

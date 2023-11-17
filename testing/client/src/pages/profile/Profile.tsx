@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 
 import { Context } from "../../main"
-  
+
 // const objectsOne = [
 //   {
 //     h: "Фио",
@@ -38,8 +38,7 @@ import { Context } from "../../main"
 // });
 const Profile = () => {
   const { store } = useContext(Context)
-  
-  
+
   return (
     <>
       <div className={style.block}>
@@ -63,17 +62,13 @@ const Profile = () => {
           <div className={style.profile}>
             <form className={style.profileForm}>
               <div className={style.headImg}>
-                <p>Фотогорафия профиля</p>
+                <p>Профиль</p>
                 <div className={style.profileImg}>
                   <img
                     src="/src/assets/c3fc6c1c-e67c-4fed-a1a6-ea6b0e135f92.jpg"
                     className={style.img}
                     alt=""
                   />
-                  <label className="input-file">
-                    <input type="file" name="file" />
-                    Выберете фото
-                  </label>
                 </div>
               </div>
               <div className={style.profileInfo}>

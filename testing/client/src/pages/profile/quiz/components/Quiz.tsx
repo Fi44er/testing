@@ -1,13 +1,13 @@
-import style from "./Quiz.module.css";
+import style from "./Quiz.module.css"
 
 const Data: any = [
   {
     qustion: "В книге или кинофильме меня больше всего привлекает:",
-    answer1: "Возможность следить за ходом мыслей автора",
+    answer1: "Нравится",
     correct: "answer1",
-    answer2: "Художественная форма, мастерство писателя или режиссера",
-    answer3: "Сюжет, действия героев",
+    answer2: "Не нравится",
   },
+<<<<<<< HEAD
   {
     qustion: "В книге или кинофильме меня больше всего привлекает:1",
     answer1: "Возможность следить за ходом мыслей автора",
@@ -129,6 +129,9 @@ const Data: any = [
     answer3: "Сюжет, действия героев",
   },
 ];
+=======
+]
+>>>>>>> f4defaa3d9d43f1daf3b1d6afbd51a8220ee35f6
 
 // const quiz = document.getElementById("quiz");
 // const qustions = document.getElementById("qustions");
@@ -146,8 +149,8 @@ const Data: any = [
 //   );
 // });
 const DataContent = Data.map((item: any) => {
-  const correct1 = Data[0].correct;
-  console.log(Data[0][correct1]);
+  const correct1 = Data[0].correct
+  console.log(Data[0][correct1])
 
   return (
     <div>
@@ -158,19 +161,17 @@ const DataContent = Data.map((item: any) => {
             <li>
               <label>
                 <input type="radio" name="q1" />
-                <p>{item.answer1}</p>
+                <div className={style.answer}>
+                  <p>{item.answer1}</p>
+                </div>
               </label>
             </li>
             <li>
               <label>
                 <input type="radio" name="q1" />
-                <p>{item.answer1}</p>
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="radio" name="q1" />
-                <p>{item.answer1}</p>
+                <div className={style.answer}>
+                  <p>{item.answer2}</p>
+                </div>
               </label>
             </li>
           </ul>
@@ -183,8 +184,8 @@ const DataContent = Data.map((item: any) => {
         </div>
       </div> */}
     </div>
-  );
-});
+  )
+})
 const Quiz = () => {
   return (
     <div className={style.Quiz} id="quiz">
@@ -194,6 +195,6 @@ const Quiz = () => {
         <button>Завершить тестирование</button>
       </div>
     </div>
-  );
-};
-export default Quiz;
+  )
+}
+export default Quiz
