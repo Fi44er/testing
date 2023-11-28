@@ -2,8 +2,7 @@
   display: flex;
   justify-content: space-between;
 
-
-  padding: 100px 11.4vw 140px 11.4vw;
+  padding: 10rem 11.4vw 14rem 11.4vw;
 
   background: linear-gradient(
     78deg,
@@ -15,31 +14,31 @@
 }
 
 .introInfo h1 {
-  font-size: 64px;
+  font-size: 6.4rem;
   font-weight: 700;
-  max-width: 667px;
+  max-width: 66.7rem;
 
-  font-size: 64px;
+  font-size: 6.4rem;
   font-weight: 700;
-  line-height: 77px;
+  line-height: 7.7rem;
 }
 
 .introInfo p {
-  max-width: 346px;
-  padding-top: 28px;
-  padding-bottom: 60px;
-  line-height: 27px;
+  max-width: 34.6rem;
+  padding-top: 2.8rem;
+  padding-bottom: 6rem;
+  line-height: 2.7rem;
 }
 
 .introBtn {
   color: #fff;
-  width: 185px;
-  height: 60px;
+  width: 18.5rem;
+  height: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  grid-gap: 20px;
-  border-radius: 12px;
+  grid-gap: 2rem;
+  border-radius: 1.2rem;
   background: #5ab9ea;
 }
 
@@ -51,14 +50,14 @@
   width: 100%;
 }
 
-@media(max-width: 1561px) {
-    .intro {
-        padding: 100px 5vw 68px 5vw;
-    }
+@media (max-width: 1561px) {
+  .intro {
+    padding: 10rem 5vw 6.8rem 5vw;
+  }
 }
 
-@media(max-width: 1018px) {
-  .intro { 
+@media (max-width: 1018px) {
+  .intro {
     justify-content: start;
   }
 
