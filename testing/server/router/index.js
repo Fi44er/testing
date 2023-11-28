@@ -15,9 +15,10 @@ router.post('/login', UserController.login)
 router.post('/logout', UserController.logout)
 router.get('/refresh', UserController.refresh)
 router.get('/users', middlewaresAuth, UserController.getUsers)
+router.get('/getUser', UserController.findUser)
 
 // quiz
-router.get('/quiz', QuizController.getQuiz)
+router.get('/getquiz', QuizController.getQuiz)
 router.post('/resultQuiz', QuizController.resultQuiz)
 
 module.exports = router

@@ -1,23 +1,27 @@
-const quizService = require('../service/quizService')
-const ApiError = require('../exceptions/apiError')
+const quizService = require("../service/quizService")
+const ApiError = require("../exceptions/apiError")
 
 class QuizController {
-    async getQuiz(req, res, next) {
-        try{
-            
-        }catch(e){
-            next(e)
-        }
+  async getQuiz(req, res, next) {
+    try {
+      const quiz = await quizService.getQuiz()
+      return res.json(quiz)
+    } catch (e) {
+      next(e)
     }
+  }
 
-    async resultQuiz(req, res, next) {
-        try{
-            
-        }catch(e){
-            next(e)
-            resultQuiz
-        }
+  async resultQuiz(req, res, next) {
+    try {
+      const answers = req.body
+      console.log(answers)
+      const quizData = await quizService.resultQuiz(answers)
+
+      return res.json(quizData)
+    } catch (e) {
+      next(e)
     }
+  }
 }
 
 module.exports = new QuizController()

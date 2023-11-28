@@ -9,6 +9,8 @@ export default class Store {
   user = {} as IUser
   isAuth = false
   isLoading = false
+  messageAuth = ''
+  messageReg = ''
   constructor() {
     makeAutoObservable(this)
   }
@@ -19,6 +21,14 @@ export default class Store {
 
   setUser(user: IUser) {
     this.user = user
+  }
+
+  setMessageAuth(messageAuth: string) {
+    this.messageAuth = messageAuth
+  }
+
+  setMessageReg(messageReg: string) {
+    this.messageReg = messageReg
   }
 
   setLoading(bool: boolean) {
@@ -33,8 +43,7 @@ export default class Store {
       this.setAuth(true)
       this.setUser(response.data.user)
     } catch (e: any) {
-      console.log(e.response?.data?.message)
-      throw e
+      this.setMessageAuth(e.response?.data?.message)
     }
   }
 
@@ -56,7 +65,7 @@ export default class Store {
       this.setAuth(true)
       this.setUser(response.data.user)
     } catch (e: any) {
-      console.log(e.response?.data?.message)
+      this.setMessageReg(e.response?.data?.message)
     }
   }
 

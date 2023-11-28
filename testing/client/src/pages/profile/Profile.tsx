@@ -1,43 +1,29 @@
+import { useState, useEffect } from "react"
 import style from "./Profile.module.css"
 import { Link } from "react-router-dom"
 import { useContext } from "react"
+import axios from "axios"
 
 import { Context } from "../../main"
 
-// const objectsOne = [
-//   {
-//     h: "Фио",
-//     p: "Каримулин Валей Сергеевич",
-//   },
-//   {
-//     h: "Пол",
-//     p: "Мужской",
-//   },
-// ]
-
-// const objectsOneContent = objectsOne.map((item) => {
-//   return (
-//     <div className={style.objects}>
-//       <p>{item.h}</p>
-//       <div>
-//         <p>{item.p}</p>
-//       </div>
-//     </div>
-//   )
-// })
-
-// const objectsTwoContent = objectsTwo.map((item) => {
-//   return (
-//     <div className={style.objects}>
-//       <p>{item.h}</p>
-//       <div>
-//         <p>{item.p}</p>
-//       </div>
-//     </div>
-//   );
-// });
 const Profile = () => {
   const { store } = useContext(Context)
+  const [user, setUser] = useState({} as any)
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/getUser", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((response) => {
+        setUser(response.data)
+      })
+      .catch((e) => {
+        return e
+      })
+  }, [])
 
   return (
     <>
@@ -74,29 +60,29 @@ const Profile = () => {
               <div className={style.profileInfo}>
                 <div>
                   <div className={style.objects}>
-                    <p></p>
+                    <p>ФИО</p>
                     <div>
-                      <p></p>
+                      <p>{user.fio}</p>
                     </div>
                   </div>
                   <div className={style.objects}>
-                    <p></p>
+                    <p>Телнфон</p>
                     <div>
-                      <p></p>
+                      <p>user.phoneNumber</p>
                     </div>
                   </div>
                 </div>
                 <div>
                   <div className={style.objects}>
-                    <p></p>
+                    <p>Почта</p>
                     <div>
-                      <p></p>
+                      <p>{user.email}</p>
                     </div>
                   </div>
                   <div className={style.objects}>
-                    <p></p>
+                    <p>Дата регистрации</p>
                     <div>
-                      <p></p>
+                      <p>{`${user.regTime}`.slice(0, -14)}</p>
                     </div>
                   </div>
                 </div>

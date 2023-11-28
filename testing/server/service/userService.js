@@ -4,6 +4,7 @@ const uuid= require('uuid')
 const tokenService = require('./tokenService')
 const UserDto = require('../dtos/userDto')
 const ApiError = require('../exceptions/apiError')
+const jwt = require('jsonwebtoken')
 
 class UserService {
     async registration(email, password, fio, phoneNumber) {
@@ -74,6 +75,25 @@ class UserService {
         const users = await connect.execute('SELECT * FROM `users`')
         return users[0]
     } 
+
+    async infoByToken(token){
+        const connect = await connection
+        const suspect = tokenService.validateAccessToken(token)
+        console.log(suspect);
+        if(suspect === null) {
+            throw ApiError.BadRequest('Некорректный токен')
+        }
+
+        const [rows, fields] = await connect.execute('SELECT * FROM `users` WHERE `email` = ?', [suspect.email]);
+        const user = rows[0]
+
+        if(user === false) {
+            throw ApiError.BadRequest('Пользователя не существует')
+        }
+        return user
+    }
+
+   
 }
 
 module.exports = new UserService()

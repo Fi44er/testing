@@ -42,7 +42,7 @@ const AuthModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
         />
         <div className="modalForm">
           <h1>Вход</h1>
-          {/* <h1>{store.login}</h1> */}
+          <h4 className="font-light text-red-600 pb-5">{store.messageAuth}</h4>
           <div className="modalInput">
             <div className="input">
               <img src="/src/assets/email.svg" alt="" />
