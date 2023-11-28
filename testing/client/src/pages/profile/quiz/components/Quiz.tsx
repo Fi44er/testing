@@ -197,6 +197,8 @@ const Quiz = () => {
     {
       question: string
       answer?: Answer | undefined
+      categoryId?: number | undefined
+      countspoint?: number | undefined
     }[]
   >([
     {
@@ -221,8 +223,8 @@ const Quiz = () => {
   return (
     <div>
       {data.map((elem, index) => (
-        <div key={elem.question}>
-          <div className={style.qustion}>
+        <div className={style.qustion} key={elem.question}>
+          <div>
             <div className={style.qustionText}>
               <p>{elem.question}</p>
             </div>
