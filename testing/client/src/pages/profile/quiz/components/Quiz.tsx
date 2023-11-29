@@ -1,6 +1,8 @@
 import style from "./Quiz.module.css"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import axios from "axios"
+import { Context } from "../../../../main"
+
 
 
 enum Answer {
@@ -40,6 +42,8 @@ const Quiz = () => {
       return newArr
     })
   }
+
+  const { store } = useContext(Context)
 
   return (
     <div>
@@ -87,7 +91,9 @@ const Quiz = () => {
       ))}
       <button
         onClick={() => {
-          console.log(data)
+          store.resultQuiz(data)
+          console.log(data);
+          
         }}
       >
         Завершить Тестирование

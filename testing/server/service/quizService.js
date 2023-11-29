@@ -10,10 +10,6 @@ class QuizService {
   async resultQuiz(answers) {
     const connect = await connection
 
-    console.log(answers)
-
-    // console.log(new Set(answers.map((el) => el.categoryId)))
-
     const categories = Array.from(
       new Set(answers.map((el) => el.categoryId))
     ).map((el) => {
@@ -24,9 +20,8 @@ class QuizService {
     })
 
     answers.forEach((element) => {
-      console.log(categories)
       let ss = categories.findIndex((el) => el.category === element.categoryId)
-      console.log(ss)
+      
 
       if (element.answer == 0) {
         categories[ss].count += element.countPoint
@@ -35,9 +30,7 @@ class QuizService {
       }
     })
 
-    console.log(categories)
-
-    // console.log(quizResult);
+    console.log(categories);
 
     return categories
   }

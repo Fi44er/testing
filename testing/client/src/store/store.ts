@@ -1,16 +1,31 @@
 import { IUser } from "../models/IUser"
+import { IQuiz } from "../models/IQuiz"
+
 import { makeAutoObservable } from "mobx"
-import AuthServices from "../services/AuthService"
 import axios from "axios"
+
+import AuthServices from "../services/AuthService"
+import QuizService from "../services/QuizService"
+
 import { AuthResponse } from "../models/response/AuthResponse"
+import { QuizResponse } from "../models/response/QuizResponse"
+
 import { API_URL } from "../http"
+
+enum Answer {
+  Like,
+  DisLike,
+  Idk,
+}
 
 export default class Store {
   user = {} as IUser
+  quiz = {} as IQuiz
+
   isAuth = false
   isLoading = false
-  messageAuth = ''
-  messageReg = ''
+  messageAuth = ""
+  messageReg = ""
   constructor() {
     makeAutoObservable(this)
   }
@@ -21,6 +36,10 @@ export default class Store {
 
   setUser(user: IUser) {
     this.user = user
+  }
+
+  setQuiz(quiz: IQuiz) {
+    this.quiz = quiz
   }
 
   setMessageAuth(messageAuth: string) {
@@ -82,7 +101,9 @@ export default class Store {
 
   async checkAuth() {
     try {
-      const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true,})
+      const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {
+        withCredentials: true,
+      })
       console.log(response)
 
       localStorage.setItem("token", response.data.accessToken)
@@ -92,6 +113,25 @@ export default class Store {
       console.log(e.response?.data?.message)
     } finally {
       this.setAuth(false)
+    }
+  }
+
+  async resultQuiz(
+    array: 
+      {
+        question: string
+        answer?: Answer | undefined
+        categoryId?: number | undefined
+        countspoint?: number | undefined
+      }[]
+  ) {
+    try {
+      const response = await QuizService.resultQuiz(array)
+      console.log(array);
+      
+      this.setQuiz(response.data.quiz)
+    }catch(e:any) {
+      console.log(e.response?.data?.message)
     }
   }
 }
