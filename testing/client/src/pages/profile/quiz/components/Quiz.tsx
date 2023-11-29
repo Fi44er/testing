@@ -3,7 +3,6 @@ import { useState, useEffect, useContext } from "react"
 import axios from "axios"
 import { Context } from "../../../../main"
 
-
 enum Answer {
   Like,
   DisLike,
@@ -87,27 +86,16 @@ const Quiz = () => {
           </div>
         </div>
       ))}
-<<<<<<< HEAD
       <div className={style.btn}>
         <button
           onClick={() => {
+            store.resultQuiz(data)
             console.log(data)
           }}
         >
           Завершить Тестирование
         </button>
       </div>
-=======
-      <button
-        onClick={() => {
-          store.resultQuiz(data)
-          console.log(data);
-          
-        }}
-      >
-        Завершить Тестирование
-      </button>
->>>>>>> 03ddb267d4b0c223f27d6dc3ce006caecbf9b9a4
     </div>
   )
 }
