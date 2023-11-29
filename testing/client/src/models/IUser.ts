@@ -4,3 +4,4 @@ export interface IUser {
     fio: string
     phoneNumber: string
 }
+

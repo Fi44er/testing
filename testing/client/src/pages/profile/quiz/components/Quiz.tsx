@@ -1,6 +1,8 @@
 import style from "./Quiz.module.css"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import axios from "axios"
+import { Context } from "../../../../main"
+
 
 enum Answer {
   Like,
@@ -36,6 +38,8 @@ const Quiz = () => {
       return newArr
     })
   }
+
+  const { store } = useContext(Context)
 
   return (
     <div className={style.quiz}>
@@ -83,6 +87,7 @@ const Quiz = () => {
           </div>
         </div>
       ))}
+<<<<<<< HEAD
       <div className={style.btn}>
         <button
           onClick={() => {
@@ -92,6 +97,17 @@ const Quiz = () => {
           Завершить Тестирование
         </button>
       </div>
+=======
+      <button
+        onClick={() => {
+          store.resultQuiz(data)
+          console.log(data);
+          
+        }}
+      >
+        Завершить Тестирование
+      </button>
+>>>>>>> 03ddb267d4b0c223f27d6dc3ce006caecbf9b9a4
     </div>
   )
 }
