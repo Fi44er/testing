@@ -1,16 +1,5 @@
 const connection = require("../database/db")
 
-// enum Answer {
-//     Like,
-//     DisLike,
-//     Idk
-// }
-
-// [
-//     "Qestion",
-//     0
-// ]
-
 class QuizService {
   async getQuiz() {
     const connect = await connection
@@ -23,7 +12,7 @@ class QuizService {
 
     console.log(answers)
 
-    console.log(new Set(answers.map((el) => el.categoryId)))
+    // console.log(new Set(answers.map((el) => el.categoryId)))
 
     const categories = Array.from(
       new Set(answers.map((el) => el.categoryId))
