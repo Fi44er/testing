@@ -2,17 +2,13 @@ import style from "./Quiz.module.css"
 import { useState, useEffect } from "react"
 import axios from "axios"
 
-
 enum Answer {
   Like,
   DisLike,
   Idk,
 }
 
-
-
 const Quiz = () => {
-
   const [data, setData] = useState<
     {
       question: string
@@ -42,7 +38,8 @@ const Quiz = () => {
   }
 
   return (
-    <div>
+    <div className={style.quiz}>
+      <h2>Тестирование на профориентацию</h2>
       {data.map((elem, index) => (
         <div className={style.qustion} key={elem.question}>
           <div>
@@ -50,48 +47,51 @@ const Quiz = () => {
               <p>{elem.question}</p>
             </div>
           </div>
-
-          <div>
-            <label>
-              <input
-                onClick={() => {
-                  setAnswer(index, Answer.Like)
-                }}
-                type="radio"
-                name={elem.question}
-              />
-              Нравится
-            </label>
-            <label>
-              <input
-                onClick={() => {
-                  setAnswer(index, Answer.DisLike)
-                }}
-                type="radio"
-                name={elem.question}
-              />
-              Не нравится
-            </label>
-            <label>
-              <input
-                onClick={() => {
-                  setAnswer(index, Answer.Idk)
-                }}
-                type="radio"
-                name={elem.question}
-              />
-              Затрудняюсь ответить
-            </label>
+          <div className={style.answer}>
+            <div>
+              <label>
+                <input
+                  onClick={() => {
+                    setAnswer(index, Answer.Like)
+                  }}
+                  type="radio"
+                  name={elem.question}
+                />
+                Нравится
+              </label>
+              <label>
+                <input
+                  onClick={() => {
+                    setAnswer(index, Answer.DisLike)
+                  }}
+                  type="radio"
+                  name={elem.question}
+                />
+                Не нравится
+              </label>
+              <label>
+                <input
+                  onClick={() => {
+                    setAnswer(index, Answer.Idk)
+                  }}
+                  type="radio"
+                  name={elem.question}
+                />
+                Затрудняюсь ответить
+              </label>
+            </div>
           </div>
         </div>
       ))}
-      <button
-        onClick={() => {
-          console.log(data)
-        }}
-      >
-        Завершить Тестирование
-      </button>
+      <div className={style.btn}>
+        <button
+          onClick={() => {
+            console.log(data)
+          }}
+        >
+          Завершить Тестирование
+        </button>
+      </div>
     </div>
   )
 }

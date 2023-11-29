@@ -1,11 +1,67 @@
+.quiz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .qustion {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+.quiz h2 {
+  font-size: 55px;
+  font-weight: bold;
+  margin-top: 50px;
+}
 .qustionText {
-  width: 500px;
+  width: 60vw;
   height: 100px;
-  background-color: blue;
+  background: linear-gradient(
+    78deg,
+    #5680e9 -8.64%,
+    rgba(136, 96, 208, 0.65) 113.97%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+}
+.qustionText p {
+  font-size: 20px;
+}
+.answer div {
+  width: 45vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  grid-gap: 25px;
+  background-color: none;
+}
+.answer div label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 5px;
+}
+.answer div label input {
+  width: 20px;
+  height: 20px;
+}
+.btn {
+  margin: 50px 0;
+}
+.btn button {
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  background: #ffe492;
+
+  color: #5f81e8;
 }
