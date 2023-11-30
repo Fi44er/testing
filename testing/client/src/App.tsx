@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound/NotFound"
 import Header from "./components/Header"
 
 import ProtectedRoute from "./components/ProtectedRoute"
+import Parcer from "./pages/profile/parcer/Parcer"
 
 const App = () => {
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false)
@@ -64,6 +65,7 @@ const App = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/tests" element={<Tests />} />
             <Route path="/quiz" element={<Quiz />} />
+            <Route path="/parcer" element={<Parcer />} />
           </Route>
 
           <Route path="*" element={<NotFound onChange={handleChange} />} />

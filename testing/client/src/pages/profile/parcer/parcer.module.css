@@ -1,0 +1,55 @@
+.parcer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 100%;
+  padding: 150px;
+  display: flex;
+  justify-content: center;
+}
+.parcerContent {
+  display: flex;
+  justify-content: center;
+  width: 600px;
+  height: 400px;
+  background: linear-gradient(
+    78deg,
+    #5680e9 -8.64%,
+    rgba(136, 96, 208, 0.65) 113.97%
+  );
+  border-radius: 30px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-gap: 50px;
+}
+.form h2 {
+  color: #fff;
+  font-size: 30px;
+}
+.form input {
+  width: 400px;
+  height: 50px;
+  color: #5680e9;
+  background-color: #fff;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form button {
+  width: 200px;
+  height: 70px;
+  background-color: #ffe492;
+  border: none;
+  border-radius: 15px;
+  color: #5f81e8;
+}
