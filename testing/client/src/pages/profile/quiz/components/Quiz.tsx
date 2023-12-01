@@ -88,9 +88,8 @@ const Quiz = () => {
       ))}
       <div className={style.btn}>
         <button
-          onClick={(e) => {
+          onClick={() => {
             store.resultQuiz(data)
-            console.log(data)
             window.location.href = "/parcer"
           }}
         >

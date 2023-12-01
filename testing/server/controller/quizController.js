@@ -1,5 +1,4 @@
 const quizService = require("../service/quizService")
-const ApiError = require("../exceptions/apiError")
 
 class QuizController {
   async getQuiz(req, res, next) {

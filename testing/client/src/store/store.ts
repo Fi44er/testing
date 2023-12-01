@@ -24,12 +24,10 @@ export default class Store {
 
   isAuth = false
   isLoading = false
-<<<<<<< HEAD
+
   messageAuth = ""
   messageReg = ""
-=======
-  message = ""
->>>>>>> 7a21804 (add)
+
   constructor() {
     makeAutoObservable(this)
   }
@@ -42,7 +40,6 @@ export default class Store {
     this.user = user
   }
 
-<<<<<<< HEAD
   setQuiz(quiz: IQuiz) {
     this.quiz = quiz
   }
@@ -53,10 +50,6 @@ export default class Store {
 
   setMessageReg(messageReg: string) {
     this.messageReg = messageReg
-=======
-  setMessage(message: string) {
-    this.message = message
->>>>>>> 7a21804 (add)
   }
 
   setLoading(bool: boolean) {
@@ -71,13 +64,10 @@ export default class Store {
       this.setAuth(true)
       this.setUser(response.data.user)
     } catch (e: any) {
-<<<<<<< HEAD
+
       this.setMessageAuth(e.response?.data?.message)
-=======
-      // console.log(e.response?.data?.message)
-      this.setMessage(e.response?.data?.message)
-      throw e
->>>>>>> 7a21804 (add)
+
+
     }
   }
 
@@ -132,7 +122,7 @@ export default class Store {
   }
 
   async resultQuiz(
-    array: 
+    array:
       {
         question: string
         answer?: Answer | undefined
@@ -143,9 +133,9 @@ export default class Store {
     try {
       const response = await QuizService.resultQuiz(array)
       console.log(array);
-      
+
       this.setQuiz(response.data.quiz)
-    }catch(e:any) {
+    } catch (e: any) {
       console.log(e.response?.data?.message)
     }
   }
