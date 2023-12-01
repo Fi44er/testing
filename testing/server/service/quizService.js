@@ -21,7 +21,7 @@ class QuizService {
 
     answers.forEach((element) => {
       let ss = categories.findIndex((el) => el.category === element.categoryId)
-      
+
 
       if (element.answer == 0) {
         categories[ss].count += element.countPoint

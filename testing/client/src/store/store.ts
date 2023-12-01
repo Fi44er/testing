@@ -24,8 +24,10 @@ export default class Store {
 
   isAuth = false
   isLoading = false
+
   messageAuth = ""
   messageReg = ""
+
   constructor() {
     makeAutoObservable(this)
   }
@@ -62,7 +64,10 @@ export default class Store {
       this.setAuth(true)
       this.setUser(response.data.user)
     } catch (e: any) {
+
       this.setMessageAuth(e.response?.data?.message)
+
+
     }
   }
 
@@ -117,7 +122,7 @@ export default class Store {
   }
 
   async resultQuiz(
-    array: 
+    array:
       {
         question: string
         answer?: Answer | undefined
@@ -128,9 +133,9 @@ export default class Store {
     try {
       const response = await QuizService.resultQuiz(array)
       console.log(array);
-      
+
       this.setQuiz(response.data.quiz)
-    }catch(e:any) {
+    } catch (e: any) {
       console.log(e.response?.data?.message)
     }
   }

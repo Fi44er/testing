@@ -18,7 +18,6 @@ app.use(cors({
 app.use('/api', router)
 app.use(errorMiddlware)
 
- 
 const start = async () => {
     try{
         (await connection).connect

@@ -13,7 +13,7 @@ const AuthModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
   const { store } = useContext(Context)
-  
+
   return (
     <Modal
       isOpen={isOpen}
@@ -42,7 +42,10 @@ const AuthModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
         />
         <div className="modalForm">
           <h1>Вход</h1>
+
           <h4 className="font-light text-red-600 pb-5">{store.messageAuth}</h4>
+
+
           <div className="modalInput">
             <div className="input">
               <img src="/src/assets/email.svg" alt="" />
