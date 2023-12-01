@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import { Route, Routes, useLocation } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
-=======
-import { Route, Routes } from "react-router-dom"
-import { BrowserRouter } from "react-router-dom"
->>>>>>> 9fe937045fe386c4b5c4544a0ce9e5c81cf87604
 
 import "./App.css";
 import { useState } from "react";
