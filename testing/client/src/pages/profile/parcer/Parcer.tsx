@@ -1,5 +1,4 @@
-import style from "./parcer.module.css"
-
+import style from "./parcer.module.css";
 export default function Parcer() {
   return (
     <div className={style.parcer}>
@@ -14,9 +13,9 @@ export default function Parcer() {
               id=""
             />
             <button
-              type="submit"
               onClick={(e) => {
-                window.location.href = "#"
+                e.preventDefault();
+                window.location.href = "/resultat";
               }}
             >
               Перейти к итогам
@@ -25,5 +24,5 @@ export default function Parcer() {
         </div>
       </div>
     </div>
-  )
+  );
 }

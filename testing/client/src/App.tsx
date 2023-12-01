@@ -1,39 +1,40 @@
-import { Route, Routes, useLocation } from "react-router-dom"
-import { BrowserRouter } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
-import "./App.css"
-import { useState } from "react"
+import "./App.css";
+import { useState } from "react";
 
-import Profile from "./pages/profile/Profile"
-import Home from "./pages/home/Home"
-import Tests from "./pages/profile/tests/components/Tests"
-import Quiz from "./pages/profile/quiz/components/Quiz"
-import NotFound from "./pages/NotFound/NotFound"
-import Header from "./components/Header"
+import Profile from "./pages/profile/Profile";
+import Home from "./pages/home/Home";
+import Tests from "./pages/profile/tests/components/Tests";
+import Quiz from "./pages/profile/quiz/components/Quiz";
+import NotFound from "./pages/NotFound/NotFound";
+import Header from "./components/Header";
 
-import ProtectedRoute from "./components/ProtectedRoute"
-import Parcer from "./pages/profile/parcer/Parcer"
+import ProtectedRoute from "./components/ProtectedRoute";
+import Parcer from "./pages/profile/parcer/Parcer";
+import Resalts from "./pages/profile/resalts/Resalts";
 
 const App = () => {
-  const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false)
-  const openAuth = () => setIsAuthOpen(true)
-  const closeAuth = () => setIsAuthOpen(false)
+  const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
+  const openAuth = () => setIsAuthOpen(true);
+  const closeAuth = () => setIsAuthOpen(false);
 
-  const [isRegOpen, setIsRegOpen] = useState<boolean>(false)
-  const openReg = () => setIsRegOpen(true)
-  const closeReg = () => setIsRegOpen(false)
+  const [isRegOpen, setIsRegOpen] = useState<boolean>(false);
+  const openReg = () => setIsRegOpen(true);
+  const closeReg = () => setIsRegOpen(false);
 
   // nptFound page location
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState("");
   const handleChange = (pathNotFound: any) => {
-    setValue(pathNotFound)
-  }
+    setValue(pathNotFound);
+  };
 
-  let authenticated
+  let authenticated;
   if (!localStorage.getItem("token")) {
-    authenticated = false
+    authenticated = false;
   } else {
-    authenticated = true
+    authenticated = true;
   }
 
   return (
@@ -66,13 +67,14 @@ const App = () => {
             <Route path="/tests" element={<Tests />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/parcer" element={<Parcer />} />
+            <Route path="/resultat" element={<Resalts />} />
           </Route>
 
           <Route path="*" element={<NotFound onChange={handleChange} />} />
         </Routes>
       </BrowserRouter>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

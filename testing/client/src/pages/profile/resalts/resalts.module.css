@@ -1,0 +1,101 @@
+.results {
+  width: 100%;
+  height: 100vh;
+}
+.container {
+  width: 100%;
+  padding: 100px 100px 50px 100px;
+  display: flex;
+  justify-content: left;
+}
+.head {
+  display: flex;
+  justify-content: center;
+  color: #5f81e8;
+  font-size: 40px;
+  padding-top: 100px;
+}
+.resultsContent {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 100px;
+}
+.profItems {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 60px;
+}
+
+.prof1 {
+  width: 500px;
+  height: 150px;
+  background-color: #5f81e8;
+  border: none;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  grid-gap: 15px;
+}
+.prof1 h2 {
+  font-size: 20px;
+}
+.prof1 p {
+  font-size: 18px;
+}
+.prof2 {
+  width: 500px;
+  height: 150px;
+  background-color: #19b5f1;
+  border: none;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  grid-gap: 15px;
+}
+.prof2 h2 {
+  font-size: 20px;
+}
+.prof2 p {
+  font-size: 18px;
+}
+.profRecomend {
+  width: 1000px;
+  height: 350px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(
+    78deg,
+    #5680e9 -8.64%,
+    rgba(136, 96, 208, 0.65) 113.97%
+  );
+  padding: 0 100px;
+}
+.profRecomend div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-gap: 25px;
+  color: #fff;
+}
+.profRecomendHead {
+  padding: 50px 0;
+  color: #fff;
+  font-size: 25px;
+  font-weight: medium;
+}
+.profRecomend button {
+  width: 200px;
+  height: 60px;
+  background-color: #ffe492;
+  color: #5f81e8;
+  border: none;
+  border-radius: 15px;
+  margin-top: 50px;
+}
