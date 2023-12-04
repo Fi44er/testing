@@ -1,5 +1,6 @@
 const axios = require("axios")
 const words = require("../wordsGroups.json")
+const ApiError = require('../exceptions/apiError')
 
 class ParserService {
     async getGroups(userId) {
@@ -13,6 +14,10 @@ class ParserService {
 
         // let data
 
+        if (("" + userId).length < 5 || ("" + userId).length > 32) {
+            throw ApiError.InCorrectId(`ID: ${userId} не корректный`)
+        }
+
         let responseDate
         let nameGroups
         await axios
@@ -20,19 +25,24 @@ class ParserService {
             .then((response) => {
                 responseDate = response.data
             })
+
+        if (responseDate.error) {
+            throw ApiError.InCorrectId(`Пользователя с ID: ${userId} не существует`)
+        }
+        if (!responseDate.response.groups.items[0]) {
+            nameGroups = []
+            return nameGroups
+        }
+        console.log(responseDate.response.groups.items);
         const groupIds = responseDate.response.groups.items
 
         await axios
-        .get(`https://api.vk.com/method/groups.getById?group_ids=35285306&fields=activity&access_token=${accessToken}&v=5.131`)
-        .then((response) => {
-            nameGroups = response.data
-        })
-        // await axios
-        //     .get(`https://api.vk.com/method/groups.getById?group_ids=${groupIds}&access_token=${accessToken}&v=5.131`)
-        //     .then((response) => {
-        //         nameGroups = response.data.response.map((group) => group.name)
-        //     })
-        console.log(nameGroups);
+            .get(`https://api.vk.com/method/groups.getById?group_ids=${groupIds}&access_token=${accessToken}&v=5.131`)
+            .then((response) => {
+                nameGroups = response.data.response.map((group) => group.name)
+            })
+
+        return nameGroups
     }
 }
 
