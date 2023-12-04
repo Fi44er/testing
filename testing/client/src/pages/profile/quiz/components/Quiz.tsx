@@ -90,7 +90,6 @@ const Quiz = () => {
         <button
           onClick={() => {
             store.resultQuiz(data)
-            window.location.href = "/parcer"
           }}
         >
           Завершить Тестирование

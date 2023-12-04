@@ -1,16 +1,10 @@
 import style from "./Test.module.css"
-import { Routes, Route, Link } from "react-router-dom"
-const thems = [
-  {
-    name: "Проф тест",
-  },
-]
+import { Link } from "react-router-dom"
 
-const themsContent = thems.map((item) => {
-  return <div>{item.name}</div>
-})
+
 
 function Tests() {
+
   return (
     <div className={style.TestsBlock}>
       <div className={style.profileHeader}>
@@ -31,7 +25,7 @@ function Tests() {
       <div className={style.testsItems}>
         <div className={style.them}>
           <h2>Темы</h2>
-          <Link to="/quiz">{themsContent}</Link>
+          <Link to="/quiz">Проф тест</Link>
         </div>
       </div>
     </div>

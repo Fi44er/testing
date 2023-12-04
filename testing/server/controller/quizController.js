@@ -12,9 +12,10 @@ class QuizController {
 
   async resultQuiz(req, res, next) {
     try {
+      const { refreshToken } = req.cookies
       const answers = req.body
-      console.log(answers)
-      const quizData = await quizService.resultQuiz(answers)
+      console.log(refreshToken);
+      const quizData = await quizService.resultQuiz(answers, refreshToken)
 
       return res.json(quizData)
     } catch (e) {

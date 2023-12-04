@@ -3,7 +3,7 @@ const UserController = require('../controller/userController')
 const QuizController = require('../controller/quizController')
 const { body } = require('express-validator')
 const middlewaresAuth = require('../middlewares/middlewaresAuth')
-const parserController = require('../controller/parserController')
+const ParserController = require('../controller/parserController')
 
 const router = new Router()
 
@@ -23,6 +23,6 @@ router.get('/getquiz', QuizController.getQuiz)
 router.post('/resultQuiz', QuizController.resultQuiz)
 
 // parser
-router.get('/getgroups', parserController.getGroups)
+router.get('/getgroups', ParserController.getGroups)
 
 module.exports = router

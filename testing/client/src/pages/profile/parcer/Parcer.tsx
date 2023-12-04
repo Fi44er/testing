@@ -1,5 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import style from "./parcer.module.css";
-export default function Parcer() {
+export default function Parcer(location:any) {
+  if(location === false) {
+    const navigate = useNavigate()
+    navigate('/')
+  }
   return (
     <div className={style.parcer}>
       <div className={style.container}>
@@ -15,7 +20,7 @@ export default function Parcer() {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                window.location.href = "/resultat";
+                // window.location.href = "/resultat";
               }}
             >
               Перейти к итогам
