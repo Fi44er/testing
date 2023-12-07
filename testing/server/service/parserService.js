@@ -31,7 +31,7 @@ class ParserService {
             nameGroups = []
             return nameGroups
         }
-        // console.log(responseDate.response.groups.items);
+       
         const groupIds = responseDate.response.groups.items
 
         await axios
@@ -41,9 +41,7 @@ class ParserService {
             })
 
         const nameGroupsString = nameGroups.join("; ")
-        // console.log(nameGroupsString);
         
-
             function keywordSearch(text, keywords) {
                 let score = 0;
                 
@@ -74,15 +72,19 @@ class ParserService {
                 scoreGroups[i] = isMatch
               }
 
-
               const tokenFromDb = await tokenService.findToken(refreshToken)
-    // console.log(refreshToken);
 
-              const resultTest = await connect.execute('SELECT * FROM `result_quiz` WHERE `id_user` = ?', [tokenFromDb[0].user]);
-              const parseResultTest = JSON.parse(resultTest[0].result);
+              const test = await connect.execute('SELECT * FROM `result_quiz` WHERE `id_user` = ?', [tokenFromDb[0].user]);
+              const resultTest = test[0][test[0].length-1];
+              const parseResultTest = JSON.parse(resultTest.result);
 
+              for(let i = 0; i < parseResultTest.length; i++) {
+                parseResultTest[i].count += scoreGroups[i];
+              }
+
+              await connect.execute("UPDATE `result_quiz` SET `result`=? WHERE `id`=?", [JSON.stringify(parseResultTest), resultTest.id])
               
-        return scoreGroups
+        return parseResultTest
     }
 }
 

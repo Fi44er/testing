@@ -51,7 +51,6 @@ class QuizService {
     const resultCategories = JSON.stringify(categories)
 
     const tokenFromDb = await tokenService.findToken(refreshToken)
-    console.log(tokenFromDb);
     await connect.execute("INSERT INTO `result_quiz`(`id_user`, `result`) VALUES(?,?)", [tokenFromDb[0].user, resultCategories])
 
     return categories
