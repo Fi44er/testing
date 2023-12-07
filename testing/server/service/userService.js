@@ -4,7 +4,6 @@ const uuid= require('uuid')
 const tokenService = require('./tokenService')
 const UserDto = require('../dtos/userDto')
 const ApiError = require('../exceptions/apiError')
-const jwt = require('jsonwebtoken')
 
 class UserService {
     async registration(email, password, fio, phoneNumber) {
@@ -91,9 +90,7 @@ class UserService {
             throw ApiError.BadRequest('Пользователя не существует')
         }
         return user
-    }
-
-   
+    }   
 }
 
 module.exports = new UserService()

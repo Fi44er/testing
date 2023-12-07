@@ -2,6 +2,8 @@ import style from "./Quiz.module.css"
 import { useState, useEffect, useContext } from "react"
 import axios from "axios"
 import { Context } from "../../../../main"
+import { observer } from "mobx-react-lite"
+
 
 enum Answer {
   Like,
@@ -86,10 +88,11 @@ const Quiz = () => {
           </div>
         </div>
       ))}
+      <p className="pt-6 text-red-500">{store.messageQuiz}</p>
       <div className={style.btn}>
         <button
           onClick={() => {
-            store.resultQuiz(data)
+            store.resultQuiz(data);
           }}
         >
           Завершить Тестирование
@@ -98,4 +101,4 @@ const Quiz = () => {
     </div>
   )
 }
-export default Quiz
+export default observer(Quiz)

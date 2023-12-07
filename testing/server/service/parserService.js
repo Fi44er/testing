@@ -9,7 +9,7 @@ const tokenService = require('./tokenService')
 class ParserService {
     async getGroups(userId, refreshToken) {
         const connect = await connection
-
+        
         const accessToken ="vk1.a.jtqHF1wPC9ZHJs2nQ9eN7oA4eOaA95BbIdU7-eySSB1ej1awZT4CNBblZGAv9-Pe7VhEEC6Nw-N5AQtSQkzbAPa6j8G9O1D_UKhtVnzSd2-MyFN4wXE1yjQhtXk112bJkBKB4DqReZ4sbLNfS9Z26Bzb9WjzcwO230yRWRYVR8iv6FfMjc0HM8-OWvOx_RJvTOBwbS_SZ6tycj7tMfSFIA" // ваш access_token
 
         if (("" + userId).length < 5 || ("" + userId).length > 32) {
