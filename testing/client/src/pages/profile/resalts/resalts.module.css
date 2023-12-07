@@ -6,7 +6,7 @@
   width: 100%;
   padding: 100px 100px 50px 100px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
 .head {
   display: flex;
@@ -27,7 +27,7 @@
 }
 
 .prof1 {
-  width: 500px;
+  width: 100%;
   height: 150px;
   background-color: #5f81e8;
   border: none;
@@ -46,7 +46,7 @@
   font-size: 18px;
 }
 .prof2 {
-  width: 500px;
+  width: 100%;
   height: 150px;
   background-color: #19b5f1;
   border: none;
