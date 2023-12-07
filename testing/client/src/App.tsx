@@ -14,6 +14,7 @@ import Header from "./components/Header";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Parcer from "./pages/profile/parcer/Parcer";
 import Resalts from "./pages/profile/resalts/Resalts";
+import MapResult from "./pages/profile/map/Map";
 
 const App = () => {
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
@@ -69,6 +70,7 @@ const App = () => {
             <Route path="/parcer" element={<Parcer />} />
             <Route path="/resultat" element={<Resalts />} />
           </Route>
+          <Route path="/map" element={<MapResult />} />
 
           <Route path="*" element={<NotFound onChange={handleChange} />} />
         </Routes>
