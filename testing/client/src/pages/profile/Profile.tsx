@@ -66,9 +66,9 @@ const Profile = () => {
                     </div>
                   </div>
                   <div className={style.objects}>
-                    <p>Телнфон</p>
+                    <p>Телефон</p>
                     <div>
-                      <p>user.phoneNumber</p>
+                      <p>{user.phoneNumber}</p>
                     </div>
                   </div>
                 </div>

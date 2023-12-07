@@ -27,6 +27,7 @@ export default class Store {
 
   messageAuth = ""
   messageReg = ""
+  messageQuiz = ""
 
   constructor() {
     makeAutoObservable(this)
@@ -52,6 +53,10 @@ export default class Store {
     this.messageReg = messageReg
   }
 
+  setMessageQuiz(messageQuiz: string) {
+    this.messageQuiz = messageQuiz
+  }
+
   setLoading(bool: boolean) {
     this.isLoading = bool
   }
@@ -59,15 +64,11 @@ export default class Store {
   async login(email: string, password: string) {
     try {
       const response = await AuthServices.login(email, password)
-      console.log(response)
       localStorage.setItem("token", response.data.accessToken)
       this.setAuth(true)
       this.setUser(response.data.user)
     } catch (e: any) {
-
       this.setMessageAuth(e.response?.data?.message)
-
-
     }
   }
 
@@ -132,11 +133,11 @@ export default class Store {
   ) {
     try {
       const response = await QuizService.resultQuiz(array)
-      console.log(array);
-
       this.setQuiz(response.data.quiz)
-    } catch (e: any) {
-      console.log(e.response?.data?.message)
+      location.href = '/parcer'
+    } catch (e: any) {      
+      this.setMessageQuiz(e.response?.data?.message)
+      console.log(this.messageQuiz);
     }
   }
 }
