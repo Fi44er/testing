@@ -4,8 +4,8 @@ class ParserController {
     async getGroups(req, res, next) {
         try {
             const { refreshToken } = req.cookies
-            const userId = req.query.user_id
-            const parserData = await ParserService.getGroups(userId, refreshToken)
+            const {user_id} = req.body
+            const parserData = await ParserService.getGroups(user_id, refreshToken)
             return res.json(parserData)
         } catch (e) {
             next(e)

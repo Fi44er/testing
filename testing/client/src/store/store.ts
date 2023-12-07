@@ -1,14 +1,15 @@
 import { IUser } from "../models/IUser"
 import { IQuiz } from "../models/IQuiz"
+import { IParser } from "../models/IParser"
 
 import { makeAutoObservable } from "mobx"
 import axios from "axios"
 
 import AuthServices from "../services/AuthService"
 import QuizService from "../services/QuizService"
+import ParserService from "../services/ParserService"
 
 import { AuthResponse } from "../models/response/AuthResponse"
-import { QuizResponse } from "../models/response/QuizResponse"
 
 import { API_URL } from "../http"
 
@@ -21,6 +22,7 @@ enum Answer {
 export default class Store {
   user = {} as IUser
   quiz = {} as IQuiz
+  parser = {} as IParser
 
   isAuth = false
   isLoading = false
@@ -28,10 +30,13 @@ export default class Store {
   messageAuth = ""
   messageReg = ""
   messageQuiz = ""
+  messageParser = ""
 
   constructor() {
     makeAutoObservable(this)
   }
+
+  // ---------------------------------------------
 
   setAuth(bool: boolean) {
     this.isAuth = bool
@@ -45,6 +50,13 @@ export default class Store {
     this.quiz = quiz
   }
 
+  setParser(parser: IParser) {
+    this.parser = parser
+  }
+
+  // ---------------------------------------------
+
+
   setMessageAuth(messageAuth: string) {
     this.messageAuth = messageAuth
   }
@@ -57,9 +69,17 @@ export default class Store {
     this.messageQuiz = messageQuiz
   }
 
+  setMessageParser(messageParser: string) {
+    this.messageParser = messageParser
+  }
+
+  // ---------------------------------------------
+
   setLoading(bool: boolean) {
     this.isLoading = bool
   }
+
+  // ---------------------------------------------
 
   async login(email: string, password: string) {
     try {
@@ -138,6 +158,16 @@ export default class Store {
     } catch (e: any) {      
       this.setMessageQuiz(e.response?.data?.message)
       console.log(this.messageQuiz);
+    }
+  }
+
+  async getParser(vkId: string) {
+    try {
+      const response = await ParserService.getParser(vkId)
+      this.setParser(response.data.parser)
+      location.href = '/resultat'
+    } catch (e: any) {
+      this.setMessageParser(e.response?.data?.message)
     }
   }
 }

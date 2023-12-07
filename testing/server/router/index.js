@@ -23,6 +23,6 @@ router.get('/getquiz', QuizController.getQuiz)
 router.post('/resultQuiz', QuizController.resultQuiz)
 
 // parser
-router.get('/getgroups', ParserController.getGroups)
+router.post('/getgroups', ParserController.getGroups)
 
 module.exports = router

@@ -1,10 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import style from "./parcer.module.css";
-export default function Parcer(location:any) {
-  if(location === false) {
-    const navigate = useNavigate()
-    navigate('/')
-  }
+import { useState } from "react";
+
+export default function Parcer() {
+  const [vkId, setVkId] = useState<string>('')
   return (
     <div className={style.parcer}>
       <div className={style.container}>
@@ -14,13 +12,13 @@ export default function Parcer(location:any) {
             <input
               type="text"
               placeholder="Введите ссылку на VK профиль"
-              name=""
-              id=""
+              onChange={(e) => setVkId(e.target.value)}
+              value={vkId}
             />
             <button
               onClick={(e) => {
                 e.preventDefault();
-                // window.location.href = "/resultat";
+                location.href = `/resultat?vkId=${vkId}`;
               }}
             >
               Перейти к итогам
