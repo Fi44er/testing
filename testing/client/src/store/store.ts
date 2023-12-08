@@ -167,7 +167,7 @@ export default class Store {
       this.setParser(response.data.parser)
       // console.log(response.data);
       
-      location.href = `/resultat?obj=${response.data}`
+      location.href = `/resultat?obj=${JSON.stringify(response.data)}`
     } catch (e: any) {
       this.setMessageParser(e.response?.data?.message)
     }

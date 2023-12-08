@@ -1,7 +1,10 @@
 import style from "./resalts.module.css";
-import 
 
 export default function Resalts() {
+  const location = window.location.href
+  const locationURL = new URL(location)
+  const result = JSON.parse(`${locationURL.searchParams.get('obj')}`);
+  // console.log(result[0]);
   
   return (
     <div className={style.results}>
@@ -13,23 +16,23 @@ export default function Resalts() {
           <div className={style.profItems}>
             <div className={style.prof1}>
               <h2>Человек и природа</h2>
-              <p>Сходство:</p>
+              <p>Сходство: {result[0].count} %</p>
             </div>
             <div className={style.prof2}>
               <h2>Человек-техника</h2>
-              <p>Сходство:</p>
+              <p>Сходство: {result[1].count} %</p>
             </div>
             <div className={style.prof1}>
               <h2>Человек-искуство</h2>
-              <p>Сходство:</p>
+              <p>Сходство: {result[2].count} %</p>
             </div>
             <div className={style.prof2}>
               <h2>Человек-Знаковые системы</h2>
-              <p>Сходство:</p>
+              <p>Сходство: {result[3].count} %</p>
             </div>
             <div className={style.prof1}>
               <h2>Человек человек</h2>
-              <p>Сходство:</p>
+              <p>Сходство: {result[4].count} %</p>
             </div>
           </div>
           <div className={style.profRecomend}>
