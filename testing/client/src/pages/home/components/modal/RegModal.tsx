@@ -2,6 +2,8 @@ import Modal from "react-modal"
 import "./Modal.css"
 import { Context } from "../../../../main"
 import { useContext, useState } from "react"
+import { observer } from "mobx-react-lite"
+
 
 interface ModalProps {
   isOpen: boolean
@@ -88,4 +90,4 @@ const RegModal: React.FC<ModalProps> = ({ isOpen, onRequestClose }) => {
   )
 }
 
-export default RegModal
+export default observer(RegModal)

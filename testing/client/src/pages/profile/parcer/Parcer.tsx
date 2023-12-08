@@ -13,7 +13,7 @@ const Parcer = () => {
         <div className={style.parcerContent}>
           <form className={style.form}>
             <h2>Тестирование на профориентацию</h2>
-            <h2 className="text-red-500 text-lg">{store.messageParser}</h2>
+            <p className="text-red-300 text-lg">{store.messageParser}</p>
             <input
               type="text"
               placeholder="Введите ссылку на VK профиль"
@@ -21,7 +21,7 @@ const Parcer = () => {
               value={vkId}
             />
             <button
-              onClick={() => { store.getParser(vkId) }}
+              onClick={(e) => { store.getParser(vkId), e.preventDefault() }}
             >
               Перейти к итогам
             </button>
@@ -32,4 +32,4 @@ const Parcer = () => {
   );
 }
 
-export default observer(Parcer);
+export default observer(Parcer)

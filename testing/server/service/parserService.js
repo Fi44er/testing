@@ -83,7 +83,7 @@ class ParserService {
               }
 
               await connect.execute("UPDATE `result_quiz` SET `result`=? WHERE `id`=?", [JSON.stringify(parseResultTest), resultTest.id])
-              
+              console.log(parseResultTest);
         return parseResultTest
     }
 }

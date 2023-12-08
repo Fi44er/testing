@@ -165,7 +165,9 @@ export default class Store {
     try {
       const response = await ParserService.getParser(vkId)
       this.setParser(response.data.parser)
-      location.href = '/resultat'
+      // console.log(response.data);
+      
+      location.href = `/resultat?obj=${response.data}`
     } catch (e: any) {
       this.setMessageParser(e.response?.data?.message)
     }

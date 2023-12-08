@@ -1,6 +1,8 @@
 import style from "./resalts.module.css";
+import 
 
 export default function Resalts() {
+  
   return (
     <div className={style.results}>
       <div className={style.head}>
