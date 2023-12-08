@@ -1,14 +1,19 @@
 import style from "./parcer.module.css";
-import { useState } from "react";
+import { Context } from "../../../main"
+import { useContext, useState } from "react"
+import { observer } from "mobx-react-lite";
 
-export default function Parcer() {
+const Parcer = () => {
   const [vkId, setVkId] = useState<string>('')
+  const { store } = useContext(Context)
+
   return (
     <div className={style.parcer}>
       <div className={style.container}>
         <div className={style.parcerContent}>
           <form className={style.form}>
             <h2>Тестирование на профориентацию</h2>
+            <h2 className="text-red-500 text-lg">{store.messageParser}</h2>
             <input
               type="text"
               placeholder="Введите ссылку на VK профиль"
@@ -16,10 +21,7 @@ export default function Parcer() {
               value={vkId}
             />
             <button
-              onClick={(e) => {
-                e.preventDefault();
-                location.href = `/resultat?vkId=${vkId}`;
-              }}
+              onClick={() => { store.getParser(vkId) }}
             >
               Перейти к итогам
             </button>
@@ -29,3 +31,5 @@ export default function Parcer() {
     </div>
   );
 }
+
+export default observer(Parcer);

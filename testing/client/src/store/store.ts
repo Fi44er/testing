@@ -155,7 +155,7 @@ export default class Store {
       const response = await QuizService.resultQuiz(array)
       this.setQuiz(response.data.quiz)
       location.href = '/parcer'
-    } catch (e: any) {      
+    } catch (e: any) {
       this.setMessageQuiz(e.response?.data?.message)
       console.log(this.messageQuiz);
     }
