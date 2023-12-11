@@ -62,7 +62,7 @@ const Quiz = () => {
                   type="radio"
                   name={elem.question}
                 />
-                Нравится
+                Да
               </label>
               <label>
                 <input
@@ -72,7 +72,7 @@ const Quiz = () => {
                   type="radio"
                   name={elem.question}
                 />
-                Не нравится
+                Нет
               </label>
               <label>
                 <input
